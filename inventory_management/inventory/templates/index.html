@@ -1,19 +1,19 @@
 {% extends 'base.html' %}
 
-<
+
 {% block body %}
 <br>
 <div class="btn-group">
     <a href="#" class="btn btn-primary btn-md" role="button">Product</a>
     <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
 
-    <a href="#" class="btn btn-primary btn-md" role="button">Laptop</a>
+    <a href="{% url 'display_laptops' %}" class="btn btn-primary btn-md" role="button">Laptop</a>
     <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
 
-    <a href="#" class="btn btn-primary btn-md" role="button">Desktop</a>
+    <a href="{% url 'display_desktops' %}" class="btn btn-primary btn-md" role="button">Desktop</a>
     <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
 
-    <a href="#" class="btn btn-primary btn-md" role="button">Mobile</a>
+    <a href="{% url 'display_mobiles' %}" class="btn btn-primary btn-md" role="button">Mobile</a>
     <a href="#" class="btn btn-warning btn-sm" role="button">+</a>
     
   </div>
@@ -31,7 +31,14 @@
         </tr>
       </thead>
     <tbody>
-        
+        {% for item in items %}
+         <tr>
+               <td>{{item.pk}} </td>
+               <td>{{item.type}} </td>
+               <td>{{item.price}} </td>
+         </tr>
+
+        {%  endfor %}
     </tbody>
   </table>
 
